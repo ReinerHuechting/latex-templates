@@ -1,0 +1,10 @@
+# LaTeX by-products
+*.aux
+*.log
+*.nav
+*.snm
+*.out
+*.toc
+
+# build artifacts
+examples.pdf
