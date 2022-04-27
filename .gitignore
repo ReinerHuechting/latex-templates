@@ -5,6 +5,7 @@
 *.snm
 *.out
 *.toc
+*.vrb
 
 # build artifacts
 examples.pdf
