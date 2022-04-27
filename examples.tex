@@ -2,6 +2,8 @@
 
 \usepackage{parskip}
 \usepackage{xparse}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
 
 \DeclareDocumentEnvironment{sframe}{ O{} b }{}{
     \begin{frame}{\insertsubsection}{#1}
@@ -85,6 +87,24 @@
                     \item Item 2
                 \end{itemize}
             \end{block}
+        \end{sframe}
+
+    
+    \section*{sframe with tcolorbox blocks inside}
+
+        \begin{sframe}
+            \begin{tcolorbox}[beamer, title=Block Title 1, hide=<-1>]
+                Block content 1.
+            \end{tcolorbox}
+            \begin{tcolorbox}[beamer, title=Block Title 2, hide=<-2>]
+                Block content 2.
+            \end{tcolorbox}
+            \begin{tcolorbox}[beamer, title=Block Title 3, hide=<-3>]
+                Block content 3.
+            \end{tcolorbox}
+            \begin{tcolorbox}[beamer, title=Block Title 4, hide=<-4>, alert=<5>]
+                Block content 4.
+            \end{tcolorbox}
         \end{sframe}
 
 \end{document}
