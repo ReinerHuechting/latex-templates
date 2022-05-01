@@ -3,18 +3,29 @@
 \RequirePackage{xparse}
 
 \def\insertframesection{}
+\def\@nosframetitlewarning{\alert{Warning: No title for frame section.}}
+\def\@sframetitle{\@nosframetitlewarning}
 
 % Environment for a series of frames with a common title.
 % #1: Common title for all frames in this series
 \newenvironment{framesection}[1][\insertsection]{
   \def\insertframesection{#1}
+  \def\@sframetitle{\insertframesection}
 }{
   \def\insertframesection{}
+  \def\@sframetitle{\@nosframetitlewarning}
 }
 
 % Environment for a frame that uses the current framesection title.
-\NewDocumentEnvironment{sframe}{b}{}{
-  \begin{frame}{\insertframesection}
+\NewDocumentEnvironment{sframe}{b}{
+}{
+  \begin{frame}{\@sframetitle}
     #1
   \end{frame}
 }
+
+% TODO: There is no warning if the optional argument for framesection is omitted
+%       although there is no current section.
+% TODO: Issue package warning.
+% TODO: Collect all warnings and summarize them in the end?
+%       That might simplify development.
