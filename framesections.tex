@@ -14,18 +14,27 @@
 
 \section*{Section I}
 
-\begin{framesection}%[First series of frames]
+\begin{framesection}[First series of frames]
+  \begin{frame}{\insertframesection}
+    A frame section with a title.
+  \end{frame}
 
-\begin{frame}{\insertframesection}
-\begin{block}{A block...}
-    \begin{itemize}
-      \item with 
-      \item some
-      \item items
-    \end{itemize}
-\end{block}
-\end{frame}
+  \begin{frame}{\insertframesection}
+    \begin{block}{A block...}
+        \begin{itemize}
+          \item with 
+          \item some
+          \item items
+        \end{itemize}
+    \end{block}
+  \end{frame}
 
+\end{framesection}
+
+\begin{framesection}
+  \begin{frame}{\insertframesection}
+    A Frame section without an explicit title, uses the current section's title.
+  \end{frame}
 \end{framesection}
 
 \end{document}
