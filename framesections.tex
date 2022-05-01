@@ -1,0 +1,25 @@
+\documentclass{beamer}
+
+\usepackage{parskip}
+
+% Starts a series of frames with a common title.
+\newcommand{\framesection}[1]{
+    % #1: Common title for all frames in this series
+    \def\insertframesection{#1}
+}
+
+\begin{document}
+
+\framesection{First series of frames}
+
+\begin{frame}{\insertframesection}
+\begin{block}{A block...}
+    \begin{itemize}
+      \item with 
+      \item some
+      \item items
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\end{document}
