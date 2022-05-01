@@ -2,6 +2,8 @@
 \ProvidesPackage{framesections}[2022/05/01 Frame Sections]
 \RequirePackage{xparse}
 
+\def\insertframesection{}
+
 % Environment for a series of frames with a common title.
 % #1: Common title for all frames in this series
 \newenvironment{framesection}[1][\insertsection]{
