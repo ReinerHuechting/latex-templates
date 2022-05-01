@@ -2,15 +2,19 @@
 
 \usepackage{parskip}
 
-% Starts a series of frames with a common title.
-\newcommand{\framesection}[1]{
-    % #1: Common title for all frames in this series
-    \def\insertframesection{#1}
+% Environment for a series of frames with a common title.
+% #1: Common title for all frames in this series
+\newenvironment{framesection}[1][\insertsection]{
+  \def\insertframesection{#1}
+}{
+  \def\insertframesection{}
 }
 
 \begin{document}
 
-\framesection{First series of frames}
+\section*{Section I}
+
+\begin{framesection}%[First series of frames]
 
 \begin{frame}{\insertframesection}
 \begin{block}{A block...}
@@ -21,5 +25,7 @@
     \end{itemize}
 \end{block}
 \end{frame}
+
+\end{framesection}
 
 \end{document}
