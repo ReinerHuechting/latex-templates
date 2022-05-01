@@ -1,0 +1,18 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{framesections}[2022/05/01 Frame Sections]
+\RequirePackage{xparse}
+
+% Environment for a series of frames with a common title.
+% #1: Common title for all frames in this series
+\newenvironment{framesection}[1][\insertsection]{
+  \def\insertframesection{#1}
+}{
+  \def\insertframesection{}
+}
+
+% Environment for a frame that uses the current framesection title.
+\NewDocumentEnvironment{sframe}{b}{}{
+  \begin{frame}{\insertframesection}
+    #1
+  \end{frame}
+}
