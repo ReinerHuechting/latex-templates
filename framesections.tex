@@ -1,6 +1,7 @@
 \documentclass{beamer}
 
 \usepackage{parskip}
+\usepackage{xparse}
 
 % Environment for a series of frames with a common title.
 % #1: Common title for all frames in this series
@@ -10,16 +11,23 @@
   \def\insertframesection{}
 }
 
+% Environment for a frame that uses the current framesection title.
+\NewDocumentEnvironment{sframe}{b}{}{
+  \begin{frame}{\insertframesection}
+    #1
+  \end{frame}
+}
+
 \begin{document}
 
 \section*{Section I}
 
 \begin{framesection}[First series of frames]
-  \begin{frame}{\insertframesection}
+  \begin{sframe}
     A frame section with a title.
-  \end{frame}
+  \end{sframe}
 
-  \begin{frame}{\insertframesection}
+  \begin{sframe}
     \begin{block}{A block...}
         \begin{itemize}
           \item with 
@@ -27,14 +35,14 @@
           \item items
         \end{itemize}
     \end{block}
-  \end{frame}
+  \end{sframe}
 
 \end{framesection}
 
 \begin{framesection}
-  \begin{frame}{\insertframesection}
+  \begin{sframe}
     A Frame section without an explicit title, uses the current section's title.
-  \end{frame}
+  \end{sframe}
 \end{framesection}
 
 \end{document}
