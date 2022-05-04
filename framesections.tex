@@ -24,18 +24,21 @@
 
   \begin{framesection}{Nested series of frames}
     \begin{sframe}
-      This is a frame of a nested framesection.
+      This is a frame of a nested framesection.\\
+      The current title is: \insertframesection.
     \end{sframe}
   \end{framesection}
 
   \begin{sframe}
-    This is in the outer framesection again.
+    This is in the outer framesection again.\\
+    The current title is: \insertframesection.
   \end{sframe}
 \end{framesection}
 
 \begin{sframe}
   An sframe outside a framesection environment.
-  This will lead to a warning.
+  This will lead to a warning.\\
+  The current title is: \insertframesection.
 \end{sframe}
 
 \end{document}

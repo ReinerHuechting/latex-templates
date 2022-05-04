@@ -3,23 +3,20 @@
 \RequirePackage{xparse}
 
 \def\insertframesection{}
-\def\@nosframetitlewarning{\alert{Warning: No title for frame section.}}
-\def\@sframetitle{\@nosframetitlewarning}
+\def\@nosframetitlewarning{\alert{Warning: No title for frame section}}
+\def\insertframesection{\@nosframetitlewarning}
 
 % Environment for a series of frames with a common title.
 % #1: Common title for all frames in this series
 \newenvironment{framesection}[1]{
   \def\insertframesection{#1}
-  \def\@sframetitle{\insertframesection}
 }{
-  \def\insertframesection{}
-  \def\@sframetitle{\@nosframetitlewarning}
 }
 
 % Environment for a frame that uses the current framesection title.
 \NewDocumentEnvironment{sframe}{b}{
 }{
-  \begin{frame}{\@sframetitle}
+  \begin{frame}{\insertframesection}
     #1
   \end{frame}
 }
