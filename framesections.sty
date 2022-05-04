@@ -16,16 +16,21 @@
 }
 \ProcessOptions\relax
 
+\newcounter{framesectiondepth}
+\setcounter{framesectiondepth}{0}
+
 % Environment for a series of frames with a common title.
 % #1: Common title for all frames in this series
 \newenvironment{framesection}[1]{
+  \stepcounter{framesectiondepth}
   \def\insertframesection{#1}
 }{
+  \addtocounter{framesectiondepth}{-1}
 }
 
 % Environment for a frame that uses the current framesection title.
 \NewDocumentEnvironment{sframe}{b}{
-  \ifthenelse{\equal{\insertframesection}{\@nosframetitlewarning}}{
+  \ifthenelse{\value{framesectiondepth}=0}{
     \PackageWarning{framesections}{
       sframe outside of a framesection. The frame will not have a valid title.}
   }{
