@@ -3,8 +3,6 @@
 \RequirePackage{xparse}
 \RequirePackage{xifthen}
 
-\def\@nosframetitlewarning{\alert{Warning: No title for frame section}}
-
 % Define commands for this package if no options are given.
 \def\insertframesection{}
 \def\debugframesectiontitle{}
@@ -15,6 +13,11 @@
   \def\debugframesectiontitle{Current framesection title: \insertframesection}
 }
 \ProcessOptions\relax
+
+\newcommand{\setnosframetitlewarning}[1]{
+  \def\@nosframetitlewarning{#1}
+}
+\setnosframetitlewarning{\alert{Warning: No title for frame section}}
 
 \newcounter{framesectiondepth}
 \setcounter{framesectiondepth}{0}
