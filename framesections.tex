@@ -1,7 +1,7 @@
 \documentclass{beamer}
 
 \usepackage{parskip}
-\usepackage{framesections}
+\usepackage[draft]{framesections}
 
 \begin{document}
 
@@ -25,26 +25,26 @@
   \begin{framesection}{Nested series of frames}
     \begin{sframe}
       This is a frame of a nested framesection.\\
-      The current framesection title is: \insertframesection.
+      \debugframesectiontitle
     \end{sframe}
   \end{framesection}
 
   \begin{sframe}
     This is in the outer framesection again.\\
-    The current framesection title is: \insertframesection.
+    \debugframesectiontitle
   \end{sframe}
 
   \begin{frame}
     A standard frame inside the environment.
 
-    The current framesection title is: \insertframesection.
+    \debugframesectiontitle
   \end{frame}
 \end{framesection}
 
 \begin{sframe}
   An sframe outside a framesection environment.
   This will lead to a warning.\\
-  The current framesection title is: \insertframesection.
+  \debugframesectiontitle
 \end{sframe}
 
 \end{document}

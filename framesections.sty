@@ -3,9 +3,18 @@
 \RequirePackage{xparse}
 \RequirePackage{xifthen}
 
-\def\insertframesection{}
 \def\@nosframetitlewarning{\alert{Warning: No title for frame section}}
-\def\insertframesection{\@nosframetitlewarning}
+
+% Define commands for this package if no options are given.
+\def\insertframesection{}
+\def\debugframesectiontitle{}
+
+% Define package options.
+\DeclareOption{draft}{
+  \def\insertframesection{\@nosframetitlewarning}
+  \def\debugframesectiontitle{Current framesection title: \insertframesection}
+}
+\ProcessOptions\relax
 
 % Environment for a series of frames with a common title.
 % #1: Common title for all frames in this series
@@ -29,3 +38,4 @@
 
 % TODO: Collect all warnings and summarize them in the end?
 %       That might simplify development.
+% TODO: Create a separate package for defining and using debug output.
