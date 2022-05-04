@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{framesections}[2022/05/01 Frame Sections]
 \RequirePackage{xparse}
+\RequirePackage{xifthen}
 
 \def\insertframesection{}
 \def\@nosframetitlewarning{\alert{Warning: No title for frame section}}
@@ -15,12 +16,16 @@
 
 % Environment for a frame that uses the current framesection title.
 \NewDocumentEnvironment{sframe}{b}{
+  \ifthenelse{\equal{\insertframesection}{\@nosframetitlewarning}}{
+    \PackageWarning{framesections}{
+      sframe outside of a framesection. The frame will not have a valid title.}
+  }{
+  }
 }{
   \begin{frame}{\insertframesection}
     #1
   \end{frame}
 }
 
-% TODO: Issue package warning.
 % TODO: Collect all warnings and summarize them in the end?
 %       That might simplify development.
