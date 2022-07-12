@@ -1,5 +1,14 @@
 \documentclass[a4paper]{scrartcl}
 
+\usepackage{tikz}
+
 \begin{document}
     \section*{Examples for typesetting trees}
+
+    \begin{tikzpicture}
+        \node {parent}
+            child{node {left}}
+            child{node {right}};
+    \end{tikzpicture}
+
 \end{document}
