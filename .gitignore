@@ -6,6 +6,9 @@
 *.out
 *.toc
 *.vrb
+*.fdb_latexmk
+*.dvi
+*.fls
 
 # build artifacts
 examples.pdf
